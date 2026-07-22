@@ -1,0 +1,8 @@
+# app-ads.txt
+# Mobile App Advertising Network Configuration
+# Add your app advertising network details below
+# Format: domain, publisher_id, relationship_type, certification_id
+
+# Example entries (replace with your actual ad network information):
+# google.com, pub-xxxxxxxxxxxxxxxx, DIRECT, f08c47fec0942fa0
+# admob.google.com, ca-app-pub-xxxxxxxxxxxxxxxx~xxxxxxxxxx, DIRECT, f08c47fec0942fa0

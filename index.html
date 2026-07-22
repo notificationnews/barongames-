@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baron Games - Premium Gaming Platform</title>
+    <title>Baron Games - Gaming Platform by Hensureb</title>
     <style>
         * {
             margin: 0;
@@ -20,7 +20,7 @@
         }
 
         header {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.9);
             color: white;
             padding: 20px 0;
             position: fixed;
@@ -42,6 +42,12 @@
             align-items: center;
         }
 
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
         .logo {
             font-size: 28px;
             font-weight: bold;
@@ -50,11 +56,32 @@
             gap: 10px;
         }
 
+        .company-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .company-name {
+            font-size: 12px;
+            color: #667eea;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .slogan {
+            font-size: 11px;
+            color: #ff6b6b;
+            font-style: italic;
+        }
+
         nav a {
             color: white;
             text-decoration: none;
             margin-left: 30px;
             transition: color 0.3s;
+            font-weight: 500;
         }
 
         nav a:hover {
@@ -64,15 +91,54 @@
         .hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 150px 0 100px;
+            padding: 180px 0 120px;
             text-align: center;
             margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,107,107,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(102,126,234,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .company-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
         }
 
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
+            font-size: 56px;
+            margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
+        }
+
+        .hero-slogan {
+            font-size: 24px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
         .hero p {
@@ -126,11 +192,21 @@
             padding: 80px 0;
         }
 
-        .features h2 {
+        .section-header {
             text-align: center;
-            font-size: 36px;
             margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
             color: #333;
+        }
+
+        .section-subtitle {
+            color: #667eea;
+            font-size: 16px;
+            font-weight: 600;
         }
 
         .feature-grid {
@@ -145,11 +221,13 @@
             border-radius: 10px;
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #e9ecef;
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: #667eea;
         }
 
         .feature-icon {
@@ -165,6 +243,37 @@
 
         .feature-card p {
             color: #666;
+        }
+
+        .about-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .about-section h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: #667eea;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.8;
         }
 
         .download-section {
@@ -214,6 +323,16 @@
             border-top: 1px solid #333;
         }
 
+        .footer-content {
+            margin-bottom: 20px;
+        }
+
+        .footer-company {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
         .footer-links {
             display: flex;
             gap: 30px;
@@ -232,13 +351,13 @@
             color: #ff6b6b;
         }
 
-        .github-badge {
-            margin-top: 20px;
-        }
-
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 32px;
+                font-size: 36px;
+            }
+
+            .hero-slogan {
+                font-size: 18px;
             }
 
             .hero p {
@@ -247,7 +366,13 @@
 
             header .container {
                 flex-direction: column;
-                gap: 20px;
+                gap: 15px;
+            }
+
+            .header-left {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
             }
 
             nav a {
@@ -255,6 +380,10 @@
             }
 
             .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
                 grid-template-columns: 1fr;
             }
 
@@ -274,13 +403,19 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <div class="logo">
-                🎮 Baron Games
+            <div class="header-left">
+                <div class="logo">
+                    🎮 Baron Games
+                </div>
+                <div class="company-info">
+                    <div class="company-name">By Hensureb</div>
+                    <div class="slogan">Your Gaming Destination</div>
+                </div>
             </div>
             <nav>
                 <a href="#features">Features</a>
+                <a href="#about">About</a>
                 <a href="#download">Download</a>
-                <a href="#contact">Contact</a>
             </nav>
         </div>
     </header>
@@ -288,11 +423,17 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Baron Games</h1>
-            <p>Experience Next-Level Gaming on Your Mobile Device</p>
-            <div class="cta-buttons">
-                <a href="#download" class="btn btn-primary">📱 Download Now</a>
-                <a href="https://github.com/notificationnews/barongames-" class="btn btn-secondary">⭐ View on GitHub</a>
+            <div class="hero-content">
+                <div class="company-badge">
+                    🏆 POWERED BY HENSUREB
+                </div>
+                <h1>Baron Games</h1>
+                <p class="hero-slogan">Your Gaming Destination</p>
+                <p>Experience Next-Level Gaming on Your Mobile Device</p>
+                <div class="cta-buttons">
+                    <a href="#download" class="btn btn-primary">📱 Download Now</a>
+                    <a href="https://github.com/notificationnews/barongames-" class="btn btn-secondary">⭐ View on GitHub</a>
+                </div>
             </div>
         </div>
     </section>
@@ -300,7 +441,10 @@
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="container">
-            <h2>Why Choose Baron Games?</h2>
+            <div class="section-header">
+                <div class="section-subtitle">WHAT MAKES US DIFFERENT</div>
+                <h2>Why Choose Baron Games?</h2>
+            </div>
             <div class="feature-grid">
                 <div class="feature-card">
                     <div class="feature-icon">✨</div>
@@ -336,6 +480,45 @@
         </div>
     </section>
 
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2>About Baron Games</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Built by Hensureb</h3>
+                    <p>
+                        Baron Games is a premier gaming platform developed by Hensureb, a leader in innovative gaming solutions. We are committed to delivering exceptional gaming experiences to players worldwide.
+                    </p>
+                    <p>
+                        Our mission is simple: to create engaging, high-quality games that entertain and inspire. With a focus on user experience and cutting-edge technology, Baron Games stands out in the competitive gaming landscape.
+                    </p>
+                    <p>
+                        <strong>Slogan:</strong> <em>"Your Gaming Destination"</em> — We believe gaming should be accessible, enjoyable, and rewarding for everyone.
+                    </p>
+                </div>
+                <div class="about-text">
+                    <h3>Our Commitment</h3>
+                    <p>
+                        ✓ <strong>Quality Gaming:</strong> Every game is crafted with precision and passion
+                    </p>
+                    <p>
+                        ✓ <strong>User-Centric:</strong> Your feedback drives our improvements
+                    </p>
+                    <p>
+                        ✓ <strong>Innovation:</strong> We continuously evolve with the latest technology
+                    </p>
+                    <p>
+                        ✓ <strong>Community:</strong> Building a thriving gaming community worldwide
+                    </p>
+                    <p>
+                        ✓ <strong>Support:</strong> 24/7 customer support for all players
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Download Section -->
     <section class="download-section" id="download">
         <div class="container">
@@ -356,17 +539,21 @@
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="container">
+            <div class="footer-content">
+                <div class="footer-company">🎮 Baron Games by Hensureb</div>
+                <p style="font-size: 14px; margin-bottom: 20px;">Your Gaming Destination</p>
+            </div>
             <div class="footer-links">
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="terms.html">Terms of Service</a>
                 <a href="https://github.com/notificationnews">GitHub Profile</a>
                 <a href="https://github.com/notificationnews/barongames-/issues">Support</a>
             </div>
-            <p>&copy; 2026 Baron Games. All rights reserved.</p>
-            <p style="margin-top: 15px; font-size: 14px; opacity: 0.7;">Made with ❤️ by notificationnews</p>
-            <div class="github-badge">
+            <p>&copy; 2026 Hensureb. Baron Games™ All rights reserved.</p>
+            <p style="margin-top: 15px; font-size: 14px; opacity: 0.7;">Made with ❤️ by Hensureb Team</p>
+            <div style="margin-top: 15px;">
                 <a href="https://github.com/notificationnews/barongames-" style="color: white; text-decoration: none;">
                     ⭐ Star us on GitHub
                 </a>
